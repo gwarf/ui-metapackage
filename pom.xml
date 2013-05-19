@@ -34,6 +34,7 @@
     </developer>
   </developers>
 
+<!--
   <build>
 
     <pluginManagement>
@@ -74,7 +75,7 @@
     </plugins>
     </pluginManagement>
   </build>
-
+-->
 
   <profiles>
     <profile>
