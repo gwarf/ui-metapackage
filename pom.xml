@@ -1,0 +1,60 @@
+<project
+  xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+>
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>igi.emi</groupId>
+  <artifactId>emi-ui</artifactId>
+  <version>3.0.1-1</version>
+  <packaging>rpm</packaging>
+
+  <name>emi-ui</name>
+  <description>EMI UI meta-packages</description>
+  <url>https://github.com/caifti/mei-ui</url>
+
+  <licenses>
+    <license>
+      <name>The Apache Software License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <id>ca</id>
+      <name>Cri</name>
+      <email>cri@pd.infn.it</email>
+      <organization>INFN</organization>
+      <roles>
+        <role>Packager</role>
+      </roles>
+    </developer>
+  </developers>
+
+    <profile>
+      <id>local-staging</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <distributionManagement>
+        <repository>
+          <id>igi-releases</id>
+          <name>IGI releases</name>
+          <url>http://ci-01.cnaf.infn.it:8082/nexus/content/repositories/igi-releases/</url>
+        </repository>
+
+        <snapshotRepository>
+          <id>igi-snapshots</id>
+          <name>IGI snapshots</name>
+          <url>http://ci-01.cnaf.infn.it:8082/nexus/content/repositories/igi-snapshots/</url>
+        </snapshotRepository>
+
+      </distributionManagement>
+    </profile>
+
+  </profiles>
+</project>
+
