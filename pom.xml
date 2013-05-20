@@ -7,12 +7,17 @@
 
   <groupId>igi.emi</groupId>
   <artifactId>emi-ui</artifactId>
-  <version>3.0.1-1</version>
+  <version>3.0.1</version>
   <packaging>rpm</packaging>
+
+  <properties>
+    <rpm.release>1</rpm.release>
+    <rpm.pkgname>emi-ui</rpm.pkgname>
+  </properties>
 
   <name>emi-ui</name>
   <description>EMI UI meta-packages</description>
-  <url>https://github.com/caifti/mei-ui</url>
+  <url>https://github.com/caifti/emi-ui</url>
 
   <licenses>
     <license>
@@ -34,7 +39,7 @@
     </developer>
   </developers>
 
-<!--
+
   <build>
 
     <pluginManagement>
@@ -50,32 +55,44 @@
         </plugin>
 
       <plugin>
-        <groupId>org.codehaus.mojo</groupId>
-        <artifactId>build-helper-maven-plugin</artifactId>
-        <version>1.8</version>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>2.7</version>
         <executions>
+        
           <execution>
-            <id>attach-artifacts</id>
-            <phase>package</phase>
-            <goals>
-              <goal>attach-artifact</goal>
-            </goals>
+            <id>deploy-ui-skeleton</id>
+            <phase>deploy</phase>
+            <goals><goal>deploy-file</goal></goals>
             <configuration>
-              <artifacts>
-                <artifact>
-                  <file>emi-ui</file>
-                  <type>rpm</type>
-                  <classifier>optional</classifier>
-                </artifact>
-              </artifacts>
+              <file>$SL5}/*/emi-ui-${version}-${rpm.version}*.rpm</file>
+              <groupId>igi.emi</groupId>
+              <artifactId>emi-ui</artifactId>
+#<!--              <version>${project.version}</version> -->
+              <packaging>rpm</packaging>
+<            <repositoryId>releases</repositoryId>
+              <url>http://ci-01.cnaf.infn.it:8081/nexus/content/repositories/releases/</url>
             </configuration>
           </execution>
-        </executions>
-      </plugin>
+<!--       
+          <execution>
+            <id>deploy-delegation-skeleton</id>
+            <phase>deploy</phase>
+            <goals><goal>deploy-file</goal></goals>
+            <configuration>
+              <file>${project.build.directory}/ce-delegation-skeleton.jar</file>
+              <groupId>org.glite.ce</groupId>
+              <artifactId>delegation-skeleton</artifactId>
+              <version>${project.version}</version>
+              <packaging>jar</packaging>
+              <repositoryId>igi.website</repositoryId>
+              <url>${igi.repo.url}</url>
+            </configuration>
+          </execution>
+-->
     </plugins>
     </pluginManagement>
   </build>
--->
 
   <profiles>
     <profile>
