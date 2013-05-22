@@ -64,11 +64,10 @@
               <phase>deploy</phase>
               <goals><goal>deploy-file</goal></goals>
               <configuration>
-                <file>rpmbuild/RPMS/emi-ui-${version}-${rpm.version}*.rpm</file>
+                <file>rpmbuild/RPMS/emi-ui-${version}-${rpm.version}x86_64.rpm</file>
                 <groupId>igi.emi</groupId>
                 <artifactId>emi-ui</artifactId>
-<!--                <packaging>rpm</packaging> -->
-              <repositoryId>igi-snapshots</repositoryId>
+                <repositoryId>igi-snapshots</repositoryId>
                 <url>http://ci-01.cnaf.infn.it:8082/nexus/content/repositories/igi-snapshots/</url>
               </configuration>
             </execution>
