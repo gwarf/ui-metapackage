@@ -53,13 +53,11 @@
             <target>1.6</target>
           </configuration>
         </plugin>
-
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-deploy-plugin</artifactId>
           <version>2.7</version>
           <executions>
-        
             <execution>
               <id>deploy-ui-skeleton</id>
               <phase>deploy</phase>
@@ -68,29 +66,12 @@
                 <file>rpmbuild/*/emi-ui-${version}-${rpm.version}*.rpm</file>
                 <groupId>igi.emi</groupId>
                 <artifactId>emi-ui</artifactId>
-<!--              <version>${project.version}</version> -->
                 <packaging>rpm</packaging>
-              <repositoryId>releases</repositoryId>
-                <url>http://ci-01.cnaf.infn.it:8081/nexus/content/repositories/releases/</url>
+              <repositoryId>igi-snapshots</repositoryId>
+                <url>http://ci-01.cnaf.infn.it:8082/nexus/content/repositories/igi-snapshots/</url>
               </configuration>
             </execution>
           </executions>
-<!--       
-          <execution>
-            <id>deploy-delegation-skeleton</id>
-            <phase>deploy</phase>
-            <goals><goal>deploy-file</goal></goals>
-            <configuration>
-              <file>${project.build.directory}/ce-delegation-skeleton.jar</file>
-              <groupId>org.glite.ce</groupId>
-              <artifactId>delegation-skeleton</artifactId>
-              <version>${project.version}</version>
-              <packaging>jar</packaging>
-              <repositoryId>igi.website</repositoryId>
-              <url>${igi.repo.url}</url>
-            </configuration>
-          </execution>
--->
       </plugins>
     </pluginManagement>
   </build>
@@ -102,12 +83,6 @@
         <activeByDefault>true</activeByDefault>
       </activation>
       <distributionManagement>
-<!--        <repository>
-          <id>igi-releases</id>
-          <name>IGI releases</name>
-          <url>http://ci-01.cnaf.infn.it:8082/nexus/content/repositories/igi-releases/</url>
-        </repository>
--->
         <snapshotRepository>
           <id>igi-snapshots</id>
           <name>IGI snapshots</name>
