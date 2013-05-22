@@ -65,7 +65,7 @@
             <phase>deploy</phase>
             <goals><goal>deploy-file</goal></goals>
             <configuration>
-              <file>$SL5}/*/emi-ui-${version}-${rpm.version}*.rpm</file>
+              <file>rpmbuild/*/emi-ui-${version}-${rpm.version}*.rpm</file>
               <groupId>igi.emi</groupId>
               <artifactId>emi-ui</artifactId>
 <!--              <version>${project.version}</version> -->
@@ -74,6 +74,7 @@
               <url>http://ci-01.cnaf.infn.it:8081/nexus/content/repositories/releases/</url>
             </configuration>
           </execution>
+        </executions>
 <!--       
           <execution>
             <id>deploy-delegation-skeleton</id>
