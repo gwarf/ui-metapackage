@@ -64,7 +64,7 @@
               <phase>deploy</phase>
               <goals><goal>deploy-file</goal></goals>
               <configuration>
-                <file>RPMS/x86_64/emi-ui-3.0.1-1.el5.x86_64.rpm</file>
+                <file>${WORKSPACE}/RPMS/x86_64/emi-ui-3.0.1-1.el5.x86_64.rpm</file>
                 <groupId>igi.emi</groupId>
                 <artifactId>emi-ui</artifactId>
                 <repositoryId>igi-snapshots</repositoryId>
