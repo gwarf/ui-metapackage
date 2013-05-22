@@ -64,11 +64,11 @@
               <phase>deploy</phase>
               <goals><goal>deploy-file</goal></goals>
               <configuration>
-                <file>${WORKSPACE}/RPMS/x86_64/emi-ui-3.0.1-1.el5.x86_64.rpm</file>
+                <file>${WORKSPACE}/build/RPMS/x86_64/emi-ui-3.0.1-1.el5.x86_64.rpm</file>
                 <groupId>igi.emi</groupId>
                 <artifactId>emi-ui</artifactId>
-                <repositoryId>igi-snapshots</repositoryId>
-                <url>http://ci-01.cnaf.infn.it:8082/nexus/content/repositories/igi-snapshots/</url>
+                <repositoryId>sonatype-nexus-staging</repositoryId>
+                <url>http://ci-01.cnaf.infn.it:8081/nexus/content/repositories/releases/</url>
               </configuration>
             </execution>
           </executions>
@@ -76,7 +76,7 @@
       </plugins>
 
   </build>
-
+<!--
   <profiles>
     <profile>
       <id>local-staging</id>
@@ -85,14 +85,15 @@
       </activation>
       <distributionManagement>
         <snapshotRepository>
-          <id>igi-snapshots</id>
+          <id>sonatype-nexus-staging</id>
           <name>IGI snapshots</name>
-          <url>http://ci-01.cnaf.infn.it:8082/nexus/content/repositories/igi-snapshots/</url>
+          <url>http://ci-01.cnaf.infn.it:8081/nexus/content/repositories/releases/</url>
         </snapshotRepository>
 
       </distributionManagement>
     </profile>
 
   </profiles>
+-->
 </project>
 
