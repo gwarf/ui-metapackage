@@ -64,7 +64,7 @@
               <phase>deploy</phase>
               <goals><goal>deploy-file</goal></goals>
               <configuration>
-                <file>rpmbuild/*/emi-ui-${version}-${rpm.version}*.rpm</file>
+                <file>rpmbuild/RPMS/emi-ui-${version}-${rpm.version}*.rpm</file>
                 <groupId>igi.emi</groupId>
                 <artifactId>emi-ui</artifactId>
 <!--                <packaging>rpm</packaging> -->
