@@ -61,6 +61,7 @@ Requires:	glite-yaim-clients
 Requires:       gridsite-commands
 Requires:       gridsite-libs
 Requires:	gsi-openssh-clients
+Requires:	globus-gsi-cert-utils-progs
 Requires:       lcgdm-devel
 %ifarch x86_64
 Requires:       lcgdm-devel(x86-32)
@@ -123,6 +124,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 
 %changelog
+* Sun July 28 2013 Cristina Aiftimiei <cristina.aiftimiei@pd.infn.it> - 3.0.2-1
+- added forgotten dependencies globus-gsi-cert-utils-progs (IGIRTC-156)
 * Fri Apr 19 2013 Cristina Aiftimiei <cristina.aiftimiei@pd.infn.it> - 3.0.1-1
 - added missing dependencies gsi-openssh-clients and glite-ce-monitor-cli
 * Fri Feb 15 2013 Cristina Aiftimiei <cristina.aiftimiei@pd.infn.it> - 3.0.0-1
