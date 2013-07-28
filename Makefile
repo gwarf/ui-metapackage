@@ -5,7 +5,7 @@ VERSION= $(shell grep Version: emi-ui.spec | sed 's/^[^:]*:[^0-9]*//' )
 RELEASE= $(shell grep Release: emi-ui.spec |cut -d"%" -f1 |sed 's/^[^:]*:[^0-9]*//')
 build=$(shell pwd)/build
 DATE=$(shell date "+%a, %d %b %Y %T %z")
-dist=$(shell rpm --eval '%dist' | sed 's/%dist/.el6/')
+dist=$(shell rpm --eval '%dist' | sed 's/%dist/.el5/')
 
 default:
 	@echo "Nothing to do"
