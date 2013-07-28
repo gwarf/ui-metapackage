@@ -1,5 +1,5 @@
 Name:		emi-ui
-Version:	3.0.1
+Version:	3.0.2
 Release:	1%{?dist}
 Summary:	EMI UI meta-packages
 Group:		Applications/Internet
