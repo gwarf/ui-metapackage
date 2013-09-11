@@ -1,6 +1,6 @@
 Name:		emi-ui
 Version:	3.0.3
-Release:	1.%{?dist}
+Release:	1%{?dist}
 Summary:	EMI UI meta-packages
 Group:		Applications/Internet
 License:	ASL 2.0
