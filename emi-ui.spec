@@ -1,6 +1,6 @@
 Name:		emi-ui
 Version:	3.0.2
-Release:	1%{?dist}
+Release:	1_devel%{?dist}
 Summary:	EMI UI meta-packages
 Group:		Applications/Internet
 License:	ASL 2.0
@@ -64,7 +64,12 @@ Requires:	gsi-openssh-clients
 Requires:	globus-gsi-cert-utils-progs
 Requires:       lcgdm-devel
 %ifarch x86_64
+%if 0%{?fedora} > 10 || 0%{?rhel}>5
 Requires:       lcgdm-devel(x86-32)
+%else
+## EL 5 fix, force install of lcgdm-devel 32 bits
+Requires:	/usr/lib/liblcgdm.so
+%endif
 %endif
 Requires:       liblcgdm.so.1()(64bit), liblcgdm.so.1, lcgdm-libs
 Requires:       lcg-ManageVOTag  
