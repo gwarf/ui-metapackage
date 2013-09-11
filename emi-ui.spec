@@ -1,6 +1,6 @@
 Name:		emi-ui
-Version:	3.0.2
-Release:	1.%(date +%Y%m%d%H%M%S)%{?dist}
+Version:	3.0.3
+Release:	1.%{?dist}
 Summary:	EMI UI meta-packages
 Group:		Applications/Internet
 License:	ASL 2.0
@@ -105,7 +105,7 @@ Requires:       unicore-ucc
 #Requires:	util-c  
 Requires:       voms  
 Requires:       voms-clients3  
-Source:		emi-ui-3.0.2.tar.gz
+Source:		emi-ui-3.0.3.tar.gz
 
 %description
 Suite of clients and APIs that users and applications 
@@ -129,6 +129,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 
 %changelog
+* Mon Sep 09 2013 Adrien Devresse <adevress at cern.ch> - 3.0.3-1 
+- fix for lcgdm-devel 32 bits dependency problem on EL5
 * Sun Jul 28 2013 Cristina Aiftimiei <cristina.aiftimiei@pd.infn.it> - 3.0.2-1
 - added forgotten dependencies globus-gsi-cert-utils-progs (IGIRTC-156)
 * Fri Apr 19 2013 Cristina Aiftimiei <cristina.aiftimiei@pd.infn.it> - 3.0.1-1
