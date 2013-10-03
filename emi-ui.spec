@@ -59,6 +59,7 @@ Requires:       glite-wms-wmproxy-api-java
 Requires:       glite-wms-wmproxy-api-python  
 Requires:	glite-yaim-core
 Requires:	glite-yaim-clients
+Requires:	globus-gsi-cert-utils-progs
 Requires:       gridsite-commands
 Requires:       gridsite-libs
 Requires:	gsi-openssh-clients
@@ -105,7 +106,7 @@ Requires:       transfer-cli
 Requires:	util-c  
 Requires:       voms  
 Requires:       voms-clients  
-Source:		emi-ui-2.0.2.tar.gz
+Source:		emi-ui-2.0.3.tar.gz
 
 %description
 Suite of clients and APIs that users and applications 
@@ -129,6 +130,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 
 %changelog
+* Thu Oct 03 2013  Cristina Aiftimiei <cristina.aiftimiei@pd.infn.it> - 2.0.3-1
+- fix for lcgdm-devel 32 bits dependency problem on EL5 (thanks Adrien Devresse)
+- added forgotten dependencies globus-gsi-cert-utils-progs (IGIRTC-156)
 * Thu Oct 11 2012 Cristina Aiftimiei <cristina.aiftimiei@pd.infn.it> - 2.0.1-1
 - passing to the final versioning
 * Fri Oct 05 2012 Cristina Aiftimiei <cristina.aiftimiei@pd.infn.it> - 2.0.0-4
