@@ -64,6 +64,7 @@ Requires:       gridsite-commands
 Requires:       gridsite-libs
 Requires:	gsi-openssh-clients
 Requires:       lcgdm-devel
+%ifarch x86_64
 %if 0%{?fedora} > 10 || 0%{?rhel}>5
 Requires: lcgdm-devel(x86-32)
 %else
