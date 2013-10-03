@@ -1,5 +1,5 @@
 Name:		emi-ui
-Version:	3.0.3
+Version:	2.0.2
 Release:	1%{?dist}
 Summary:	EMI UI meta-packages
 Group:		Applications/Internet
@@ -16,7 +16,7 @@ Requires:	dcap-tunnel-gsi
 Requires:	dcap-tunnel-krb  
 Requires:	dcap-tunnel-ssl  
 Requires:	dcap-tunnel-telnet
-#Requires:       delegation-cli
+Requires:       delegation-cli  
 Requires:       dpm
 Requires:       libdpm.so.1()(64bit), libdpm.so.1, dpm-libs
 Requires:       dpm-devel
@@ -25,13 +25,14 @@ Requires:       dpm-python
 %if "%{?dist}" == ".el5"
 Requires:       dpm-python26
 %endif
+Requires:       emi-trustmanager  
+Requires:       emi-trustmanager-tomcat  
 Requires:       emi-version
 Requires:       emi.amga.amga-cli
 Requires:       emi.saga-adapter.context-cpp  
 Requires:       emi.saga-adapter.isn-cpp  
 Requires:       emi.saga-adapter.sd-cpp  
 Requires:	fetch-crl
-Requires:       fts2-client
 Requires:       libgfal.so.1()(64bit), libgfal.so.1, gfal
 Requires:       gfal-python
 %if "%{?dist}" == ".el5"
@@ -40,11 +41,9 @@ Requires:       gfal-py26
 Requires:       gfal2-all
 Requires:       gfal2-python
 Requires:       gfalFS
-Requires:	gfal2-doc
-Requires:	gfal2-devel
 Requires:       glite-ce-cream-cli  
-Requires:       glite-ce-cream-client-api-c
-Requires:       glite-ce-monitor-cli  
+Requires:       glite-ce-cream-client-api-c  
+Requires:       glite-ce-monitor-cli
 Requires:       glite-ce-monitor-client-api-c  
 Requires:       glite-jdl-api-cpp  
 Requires:       glite-jobid-api-c  
@@ -56,20 +55,16 @@ Requires:       glite-lbjp-common-trio
 Requires:       glite-service-discovery-api-c  
 Requires:       glite-wms-brokerinfo-access  
 Requires:       glite-wms-ui-commands  
+Requires:       glite-wms-wmproxy-api-java  
+Requires:       glite-wms-wmproxy-api-python  
 Requires:	glite-yaim-core
 Requires:	glite-yaim-clients
 Requires:       gridsite-commands
 Requires:       gridsite-libs
 Requires:	gsi-openssh-clients
-Requires:	globus-gsi-cert-utils-progs
 Requires:       lcgdm-devel
 %ifarch x86_64
-%if 0%{?fedora} > 10 || 0%{?rhel}>5
 Requires:       lcgdm-devel(x86-32)
-%else
-## EL 5 fix, force install of lcgdm-devel 32 bits
-Requires:	/usr/lib/liblcgdm.so
-%endif
 %endif
 Requires:       liblcgdm.so.1()(64bit), liblcgdm.so.1, lcgdm-libs
 Requires:       lcg-ManageVOTag  
@@ -91,21 +86,22 @@ Requires:       lfc-python
 Requires:       lfc-python26
 %endif
 Requires:	myproxy
-Requires:       nordugrid-arc-client-tools  
-Requires:       nordugrid-arc-plugins-xrootd
-Requires:       nordugrid-arc-plugins-gfal
+Requires:       nordugrid-arc-client  
+Requires:       nordugrid-arc-compat  
+Requires:       nordugrid-arc-java  
+Requires:       nordugrid-arc-plugins-globus  
+Requires:       nordugrid-arc-plugins-needed  
+Requires:       nordugrid-arc-python  
 Requires:       openldap-clients
 Requires:       storm-srm-client  
 Requires:       unicore-hila-shell  
 Requires:       unicore-hila-unicore6  
-Requires:       unicore-hila-emi-es
-Requires:       unicore-hila-gridftp
 Requires:       unicore-ucc
-#Requires:       transfer-cli
-#Requires:	util-c  
+Requires:       transfer-cli
+Requires:	util-c  
 Requires:       voms  
-Requires:       voms-clients3  
-Source:		emi-ui-3.0.3.tar.gz
+Requires:       voms-clients  
+Source:		emi-ui-2.0.2.tar.gz
 
 %description
 Suite of clients and APIs that users and applications 
@@ -129,22 +125,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 
 %changelog
-* Mon Sep 09 2013 Adrien Devresse <adevress at cern.ch> - 3.0.3-1 
-- fix for lcgdm-devel 32 bits dependency problem on EL5
-* Sun Jul 28 2013 Cristina Aiftimiei <cristina.aiftimiei@pd.infn.it> - 3.0.2-1
-- added forgotten dependencies globus-gsi-cert-utils-progs (IGIRTC-156)
-* Fri Apr 19 2013 Cristina Aiftimiei <cristina.aiftimiei@pd.infn.it> - 3.0.1-1
-- added missing dependencies gsi-openssh-clients and glite-ce-monitor-cli
-* Fri Feb 15 2013 Cristina Aiftimiei <cristina.aiftimiei@pd.infn.it> - 3.0.0-1
-- removed glite-wms-wmproxy-api-java, glite-wms-wmproxy-api-python - unsupported in EMI 3
-* Sun Feb 03 2013 Cristina Aiftimiei <cristina.aiftimiei@pd.infn.it> - 3.0.0-0
-- updated deps according to DM Integration/Clients - add fts2-client
-- updated deps according the EMI3Arc - add *-xrootd, *-gfal
-- replaced all nordugrid-arc-* with nordugrid-arc-client-tools 
-- removed nordugrid-arc-compat
-- updated deps according the EMI3VOMS - replace voms-clients with voms-clients3
-- added unicore-hila-emi-es, *-gridftp
-- removed deps on emi-trustmanager-* - clients/apis should already have these deps
 * Thu Oct 11 2012 Cristina Aiftimiei <cristina.aiftimiei@pd.infn.it> - 2.0.1-1
 - passing to the final versioning
 * Fri Oct 05 2012 Cristina Aiftimiei <cristina.aiftimiei@pd.infn.it> - 2.0.0-4
