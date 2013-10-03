@@ -1,5 +1,5 @@
 Name:		emi-ui
-Version:	2.0.2
+Version:	2.0.3
 Release:	1%{?dist}
 Summary:	EMI UI meta-packages
 Group:		Applications/Internet
@@ -63,8 +63,12 @@ Requires:       gridsite-commands
 Requires:       gridsite-libs
 Requires:	gsi-openssh-clients
 Requires:       lcgdm-devel
-%ifarch x86_64
-Requires:       lcgdm-devel(x86-32)
+%if 0%{?fedora} > 10 || 0%{?rhel}>5
+Requires: lcgdm-devel(x86-32)
+%else
+## EL 5 fix, force install of lcgdm-devel 32 bits
+Requires: /usr/lib/liblcgdm.so
+%endif
 %endif
 Requires:       liblcgdm.so.1()(64bit), liblcgdm.so.1, lcgdm-libs
 Requires:       lcg-ManageVOTag  
