@@ -107,7 +107,7 @@ Requires:       unicore-ucc
 #Requires:	util-c  
 Requires:       voms  
 Requires:       voms-clients3  
-Source:		emi-ui-3.0.3.tar.gz
+Source:		emi-ui-3.1.0.tar.gz
 
 %description
 Suite of clients and APIs that users and applications 
