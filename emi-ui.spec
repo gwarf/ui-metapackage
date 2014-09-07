@@ -1,5 +1,5 @@
 Name:		emi-ui
-Version:	3.0.3
+Version:	3.1.0
 Release:	1%{?dist}
 Summary:	EMI UI meta-packages
 Group:		Applications/Internet
@@ -39,9 +39,11 @@ Requires:       gfal-py26
 %endif  
 Requires:       gfal2-all
 Requires:       gfal2-python
+Requires:	gfal2-util
 Requires:       gfalFS
 Requires:	gfal2-doc
 Requires:	gfal2-devel
+Requires:	ginfo
 Requires:       glite-ce-cream-cli  
 Requires:       glite-ce-cream-client-api-c
 Requires:       glite-ce-monitor-cli  
@@ -129,6 +131,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 
 %changelog
+* Sun Sep 07 2013 Cristina Aiftimiei <cristina.aiftimiei@pd.infn.it> - 3.1.0-1
+- added dependecies on gfal2-util and ginfo (IGIRTC-176)
 * Mon Sep 09 2013 Adrien Devresse <adevress at cern.ch> - 3.0.3-1 
 - fix for lcgdm-devel 32 bits dependency problem on EL5
 * Sun Jul 28 2013 Cristina Aiftimiei <cristina.aiftimiei@pd.infn.it> - 3.0.2-1
