@@ -73,15 +73,15 @@ Requires:       gfalFS
 Requires:	gsi-openssh-clients
 Requires:	globus-gsi-cert-utils-progs
 Requires:       lcgdm-devel
-%ifarch x86_64
-%if 0%{?fedora} > 10 || 0%{?rhel}>5
-Requires:       lcgdm-devel(x86-32)
-%else
-## EL 5 fix, force install of lcgdm-devel 32 bits
-Requires:	/usr/lib/liblcgdm.so
-%endif
-%endif
-Requires:       liblcgdm.so.1()(64bit), liblcgdm.so.1, lcgdm-libs
+#%ifarch x86_64
+#%if 0%{?fedora} > 10 || 0%{?rhel}>5
+#Requires:       lcgdm-devel(x86-32)
+#%else
+### EL 5 fix, force install of lcgdm-devel 32 bits
+#Requires:	/usr/lib/liblcgdm.so
+#%endif
+#%endif
+Requires:       liblcgdm.so.1()(64bit), lcgdm-libs
 #Requires:       lcg-ManageVOTag  
 #Requires:       lcg-info  
 Requires:       lcg-infosites  
@@ -93,7 +93,7 @@ Requires:       lcg-infosites
 #Requires:       lcg-util-py26
 #%endif
 Requires:       lfc
-Requires:       liblfc.so.1()(64bit), liblfc.so.1, lfc-libs
+Requires:       liblfc.so.1()(64bit), lfc-libs
 Requires:       lfc-devel
 Requires:       lfc-perl
 Requires:       lfc-python
