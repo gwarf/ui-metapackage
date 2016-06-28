@@ -1,67 +1,75 @@
 Name:		emi-ui
-Version:	3.1.0
+Version:	4.0.0
 Release:	1%{?dist}
 Summary:	EMI UI meta-packages
 Group:		Applications/Internet
 License:	ASL 2.0
 BuildRoot:	%(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
-Requires:       ca_policy_igtf-classic  
-Requires:       ca_policy_igtf-mics  
-Requires:       ca_policy_igtf-slcs  
-Requires:       dcache-srmclient
+#Requires:       ca_policy_igtf-classic  
+#Requires:       ca_policy_igtf-mics  
+#Requires:       ca_policy_igtf-slcs  
+# the above replaced by ca-policy-egi-core
+Requires:	ca-policy-egi-core
+Requires:       aria2
+Requires:	davix-libs
+# dcache-srmclient - ccould be available from dcache: SRM client 2.10.7 (rpm)
+#Requires:       dcache-srmclient
 Requires:       dcap
 Requires:	dcap-devel
 Requires:	dcap-libs 
 Requires:	dcap-tunnel-gsi
-Requires:	dcap-tunnel-krb  
-Requires:	dcap-tunnel-ssl  
-Requires:	dcap-tunnel-telnet
+#Requires:	dcap-tunnel-krb  
+#Requires:	dcap-tunnel-ssl  
+#Requires:	dcap-tunnel-telnet
 #Requires:       delegation-cli
-Requires:       dpm
-Requires:       libdpm.so.1()(64bit), libdpm.so.1, dpm-libs
-Requires:       dpm-devel
-Requires:       dpm-perl
-Requires:       dpm-python
-%if "%{?dist}" == ".el5"
-Requires:       dpm-python26
-%endif
-Requires:       emi-version
-Requires:       emi.amga.amga-cli
-Requires:       emi.saga-adapter.context-cpp  
-Requires:       emi.saga-adapter.isn-cpp  
-Requires:       emi.saga-adapter.sd-cpp  
+#Requires:       dpm
+#Requires:       libdpm.so.1()(64bit), libdpm.so.1, dpm-libs
+#Requires:       dpm-devel
+#Requires:       dpm-perl
+#Requires:       dpm-python
+#%if "%{?dist}" == ".el5"
+#Requires:       dpm-python26
+#%endif
+#Requires:       emi-version
+#Requires:       emi.amga.amga-cli
+#Requires:       emi.saga-adapter.context-cpp  
+#Requires:       emi.saga-adapter.isn-cpp  
+#Requires:       emi.saga-adapter.sd-cpp  
 Requires:	fetch-crl
-Requires:       fts2-client
-Requires:       libgfal.so.1()(64bit), libgfal.so.1, gfal
-Requires:       gfal-python
-%if "%{?dist}" == ".el5"
-Requires:       gfal-py26
-%endif  
+Requires:	fuse
+Requires:       fuse-libs
+#Requires:       fts2-client
+#Requires:       libgfal.so.1()(64bit), libgfal.so.1, gfal
+#Requires:       gfal-python
+#%if "%{?dist}" == ".el5"
+#Requires:       gfal-py26
+#%endif  
 Requires:       gfal2-all
+Requires:	gfal2-plugin-xrootd
 Requires:       gfal2-python
 Requires:	gfal2-util
 Requires:       gfalFS
-Requires:	gfal2-doc
-Requires:	gfal2-devel
-Requires:	ginfo
-Requires:       glite-ce-cream-cli  
-Requires:       glite-ce-cream-client-api-c
-Requires:       glite-ce-monitor-cli  
-Requires:       glite-ce-monitor-client-api-c  
-Requires:       glite-jdl-api-cpp  
-Requires:       glite-jobid-api-c  
-Requires:       glite-lb-client
-Requires:	glite-lb-client-progs 
-Requires:       glite-lb-common  
-Requires:       glite-lbjp-common-gss  
-Requires:       glite-lbjp-common-trio  
-Requires:       glite-service-discovery-api-c  
-Requires:       glite-wms-brokerinfo-access  
-Requires:       glite-wms-ui-commands  
-Requires:	glite-yaim-core
-Requires:	glite-yaim-clients
-Requires:       gridsite-commands
-Requires:       gridsite-libs
+#Requires:	gfal2-doc
+#Requires:	gfal2-devel
+#Requires:	ginfo
+#Requires:       glite-ce-cream-cli  
+#Requires:       glite-ce-cream-client-api-c
+#Requires:       glite-ce-monitor-cli  
+#Requires:       glite-ce-monitor-client-api-c  
+#Requires:       glite-jdl-api-cpp  
+#Requires:       glite-jobid-api-c  
+#Requires:       glite-lb-client
+#Requires:	glite-lb-client-progs 
+#Requires:       glite-lb-common  
+#Requires:       glite-lbjp-common-gss  
+#Requires:       glite-lbjp-common-trio  
+#Requires:       glite-service-discovery-api-c  
+#Requires:       glite-wms-brokerinfo-access  
+#Requires:       glite-wms-ui-commands  
+#Requires:	glite-yaim-core
+#Requires:	glite-yaim-clients
+#Requires:       gridsite-commands
+#Requires:       gridsite-libs
 Requires:	gsi-openssh-clients
 Requires:	globus-gsi-cert-utils-progs
 Requires:       lcgdm-devel
@@ -74,16 +82,16 @@ Requires:	/usr/lib/liblcgdm.so
 %endif
 %endif
 Requires:       liblcgdm.so.1()(64bit), liblcgdm.so.1, lcgdm-libs
-Requires:       lcg-ManageVOTag  
-Requires:       lcg-info  
+#Requires:       lcg-ManageVOTag  
+#Requires:       lcg-info  
 Requires:       lcg-infosites  
-Requires:       lcg-tags  
-Requires:       lcg-util
-Requires:       liblcg_util.so.1()(64bit), liblcg_util.so.1, lcg-util-libs
-Requires:       lcg-util-python
-%if "%{?dist}" == ".el5"
-Requires:       lcg-util-py26
-%endif
+#Requires:       lcg-tags  
+#Requires:       lcg-util
+#Requires:       liblcg_util.so.1()(64bit), liblcg_util.so.1, lcg-util-libs
+#Requires:       lcg-util-python
+#%if "%{?dist}" == ".el5"
+#Requires:       lcg-util-py26
+#%endif
 Requires:       lfc
 Requires:       liblfc.so.1()(64bit), liblfc.so.1, lfc-libs
 Requires:       lfc-devel
@@ -93,21 +101,24 @@ Requires:       lfc-python
 Requires:       lfc-python26
 %endif
 Requires:	myproxy
-Requires:       nordugrid-arc-client-tools  
+Requires:       nordugrid-arc-client
 Requires:       nordugrid-arc-plugins-xrootd
 Requires:       nordugrid-arc-plugins-gfal
-Requires:       openldap-clients
-Requires:       storm-srm-client  
-Requires:       unicore-hila-shell  
-Requires:       unicore-hila-unicore6  
-Requires:       unicore-hila-emi-es
-Requires:       unicore-hila-gridftp
-Requires:       unicore-ucc
+Requires:	nordugrid-arc-plugins-globus
+Requires:	nordugrid-arc-plugins-needed
+#Requires:       openldap-clients
+#Requires:       storm-srm-client  
+#Requires:       unicore-hila-shell  
+#Requires:       unicore-hila-unicore6  
+#Requires:       unicore-hila-emi-es
+#Requires:       unicore-hila-gridftp
+#Requires:       unicore-ucc
 #Requires:       transfer-cli
 #Requires:	util-c  
 Requires:       voms  
-Requires:       voms-clients3  
-Source:		emi-ui-3.1.0.tar.gz
+#Requires:       voms-clients3  
+Requires:	xrootd-client
+Source:		emi-ui-4.0.0.tar.gz
 
 %description
 Suite of clients and APIs that users and applications 
