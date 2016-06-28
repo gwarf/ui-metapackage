@@ -116,7 +116,7 @@ Requires:	nordugrid-arc-plugins-needed
 #Requires:       transfer-cli
 #Requires:	util-c  
 Requires:       voms  
-#Requires:       voms-clients3  
+Requires:       voms-clients-java  
 Requires:	xrootd-client
 Source:		emi-ui-4.0.0.tar.gz
 
