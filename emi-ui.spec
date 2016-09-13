@@ -27,8 +27,7 @@ Requires:       dpm-devel
 Requires:       dpm-perl
 Requires:       dpm-python
 Requires:       lcgdm-devel
-Requires:       lcgdm-devel(x86-32)
-Requires:       libdpm.so.1()(64bit), libdpm.so.1, dpm-libs
+Requires:       libdpm.so.1()(64bit), dpm-libs
 Requires:       liblcgdm.so.1()(64bit), lcgdm-libs
 Requires:	      fetch-crl
 Requires:	      fts-client
@@ -48,7 +47,6 @@ Requires:       lcg-ManageVOTag
 Requires:       lcg-info  
 Requires:       lcg-infosites  
 Requires:       lcg-tags  
-Requires:       lcg-util-python
 Requires:       lfc
 Requires:       liblfc.so.1()(64bit), lfc-libs
 Requires:       lfc-devel
@@ -96,6 +94,9 @@ Requires:	      glite-yaim-clients
 Requires:       gridsite-commands
 Requires:       gridsite-libs
 Requires:       lcg-util
+Requires:       lcg-util-python
+Requires:       lcgdm-devel(x86-32)
+Requires:       libdpm.so.1 
 Requires:       liblcg_util.so.1()(64bit), liblcg_util.so.1, lcg-util-libs
 Requires:       storm-srm-client  
 Requires:       unicore-hila-shell  
