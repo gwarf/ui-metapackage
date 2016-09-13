@@ -23,14 +23,15 @@ Requires:	      dcap-tunnel-krb
 Requires:	      dcap-tunnel-ssl  
 Requires:	      dcap-tunnel-telnet
 Requires:       dpm
-Requires:       libdpm.so.1()(64bit), libdpm.so.1, dpm-libs
-Requires:       liblcgdm.so.1()(64bit), lcgdm-libs
 Requires:       dpm-devel
 Requires:       dpm-perl
+Requires:       dpm-python
 Requires:       lcgdm-devel
 Requires:       lcgdm-devel(x86-32)
-Requires:       dpm-python
+Requires:       libdpm.so.1()(64bit), libdpm.so.1, dpm-libs
+Requires:       liblcgdm.so.1()(64bit), lcgdm-libs
 Requires:	      fetch-crl
+Requires:	      fts-client
 Requires:     	 fuse
 Requires:       fuse-libs
 Requires:       gfal2-all
@@ -105,7 +106,6 @@ Requires:       unicore-ucc
 Requires:       transfer-cli
 Requires:	      util-c  
 %endif
-
 
 Source:		       emi-ui-4.0.0.tar.gz
 
