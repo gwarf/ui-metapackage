@@ -65,7 +65,6 @@ Requires:       voms-clients-java
 Requires:	      xrootd-client
 
 %if %el6
-# dcache-srmclient - ccould be available from dcache: SRM client 2.10.7 (rpm)
 Requires:       delegation-cli
 Requires:       emi-version
 Requires:       emi.amga.amga-cli
@@ -133,7 +132,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %changelog
 * Thu Mar 09 2017 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.1-1
-- added dachesrm-client on el7
+- added dcachesrm-client on el7
 * Tue Sep 13 2016 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.0-1
 - removed EL5 support
 - added EL7 support
