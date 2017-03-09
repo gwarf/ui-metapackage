@@ -4,7 +4,7 @@
 %global el6 1
 %endif
 Name:		emi-ui
-Version:	4.0.0
+Version:	4.0.1
 Release:	1%{?dist}
 Summary:	EMI UI meta-packages
 Group:		Applications/Internet
@@ -12,9 +12,10 @@ License:	ASL 2.0
 BuildRoot:	%(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
 
 # the above replaced by ca-policy-egi-core
-Requires:	      ca-policy-egi-core
+Requires:       ca-policy-egi-core
 Requires:       aria2
 Requires:	      davix-libs
+Requires:       dcache-srmclient
 Requires:       dcap
 Requires:	      dcap-devel
 Requires:	      dcap-libs 
@@ -65,7 +66,6 @@ Requires:	      xrootd-client
 
 %if %el6
 # dcache-srmclient - ccould be available from dcache: SRM client 2.10.7 (rpm)
-Requires:       dcache-srmclient
 Requires:       delegation-cli
 Requires:       emi-version
 Requires:       emi.amga.amga-cli
@@ -108,7 +108,7 @@ Requires:       transfer-cli
 Requires:	      util-c  
 %endif
 
-Source:		       emi-ui-4.0.0.tar.gz
+Source:		       emi-ui-4.0.1.tar.gz
 
 %description
 Suite of clients and APIs that users and applications 
@@ -132,6 +132,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 
 %changelog
+* Thu Mar 09 2017 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.1-1
+- added dachesrm-client on el7
 * Tue Sep 13 2016 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.0-1
 - removed EL5 support
 - added EL7 support
