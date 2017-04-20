@@ -4,7 +4,7 @@
 %global el6 1
 %endif
 Name:		emi-ui
-Version:	4.0.1
+Version:	4.0.2
 Release:	1%{?dist}
 Summary:	EMI UI meta-packages
 Group:		Applications/Internet
@@ -42,6 +42,10 @@ Requires:       gfalFS
 Requires:	      gfal2-doc
 Requires:	      gfal2-devel
 Requires:	      ginfo
+Requires:       glite-ce-cream-cli  
+Requires:       glite-ce-cream-client-api-c
+Requires:	      glite-yaim-core
+Requires:	      glite-yaim-clients
 Requires:	      gsi-openssh-clients
 Requires:	      globus-gsi-cert-utils-progs
 Requires:       lcg-ManageVOTag  
@@ -74,8 +78,6 @@ Requires:       emi.saga-adapter.sd-cpp
 Requires:       fts2-client
 Requires:       libgfal.so.1()(64bit), libgfal.so.1, gfal
 Requires:       gfal-python
-Requires:       glite-ce-cream-cli  
-Requires:       glite-ce-cream-client-api-c
 Requires:       glite-ce-monitor-cli  
 Requires:       glite-ce-monitor-client-api-c  
 Requires:       glite-jdl-api-cpp  
@@ -88,8 +90,6 @@ Requires:       glite-lbjp-common-trio
 Requires:       glite-service-discovery-api-c  
 Requires:       glite-wms-brokerinfo-access  
 Requires:       glite-wms-ui-commands  
-Requires:	      glite-yaim-core
-Requires:	      glite-yaim-clients
 Requires:       gridsite-commands
 Requires:       gridsite-libs
 Requires:       lcg-util
@@ -107,7 +107,7 @@ Requires:       transfer-cli
 Requires:	      util-c  
 %endif
 
-Source:		       emi-ui-4.0.1.tar.gz
+Source:		       emi-ui-4.0.2.tar.gz
 
 %description
 Suite of clients and APIs that users and applications 
@@ -131,6 +131,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 
 %changelog
+* Thu Apr 20 2017 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.2-1
+- added cream-cli and yaim on el7
 * Thu Mar 09 2017 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.1-1
 - added dcachesrm-client on el7
 * Tue Sep 13 2016 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.0-1
