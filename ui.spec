@@ -3,10 +3,10 @@
 %else
 %global el6 1
 %endif
-Name:		emi-ui
-Version:	4.0.2
+Name:		ui
+Version:	4.0.3
 Release:	1%{?dist}
-Summary:	EMI UI meta-packages
+Summary:	UI meta-packages
 Group:		Applications/Internet
 License:	ASL 2.0
 BuildRoot:	%(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
@@ -107,7 +107,7 @@ Requires:       transfer-cli
 Requires:	      util-c  
 %endif
 
-Source:		       emi-ui-4.0.2.tar.gz
+Source:		       ui-4.0.3.tar.gz
 
 %description
 Suite of clients and APIs that users and applications 
@@ -131,6 +131,8 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root,-)
 
 %changelog
+* Fri Sep 15 2017 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.3-1
+- package renamed to ui
 * Thu Apr 20 2017 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.2-1
 - added cream-cli and yaim on el7
 * Thu Mar 09 2017 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.1-1
