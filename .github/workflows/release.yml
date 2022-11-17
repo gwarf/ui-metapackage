@@ -41,13 +41,15 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: rpms7
+
       - name: Find package name
         id: package_name_centos7
         run: |
-          rpm_path=$(find . -name 'ui-el7.x86_64.rpm')
-          src_path=$(find . -name 'ui-el7.src.rpm')
-          echo "rpm_path=$rpm_path" >> "$GITHUB_OUTPUT"
-          echo "src_path=$src_path" >> "$GITHUB_OUTPUT"
+          rpm_path=$(find . -name 'ui-*.el7.x86_64.rpm')
+          src_path=$(find . -name 'ui-*.el7.src.rpm')
+          echo "rpm_path=${rpm_path}" >> "$GITHUB_OUTPUT"
+          echo "src_path=${src_path}" >> "$GITHUB_OUTPUT"
+
       - name: Attach CentOS 7 RPMs to the release
         uses: softprops/action-gh-release@v1
         env:
