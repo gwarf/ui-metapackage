@@ -8,7 +8,7 @@ The UI relies on packages available in the following repositories:
 * [UMD](https://repository.egi.eu/)
 * [EPEL](https://docs.fedoraproject.org/en-US/epel/)
 
-## Building packages
+## Building package
 
 ### Building the RPM
 
