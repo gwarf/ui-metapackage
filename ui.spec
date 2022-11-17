@@ -3,6 +3,9 @@
 %else
 %global el6 1
 %endif
+
+%global debug_package %{nil}
+
 Name:		ui
 Version:	4.0.3
 Release:	1%{?dist}
@@ -114,6 +117,7 @@ Suite of clients and APIs that users and applications
 can use to access grid services
 
 %prep
+
 %setup -q
 
 %build
