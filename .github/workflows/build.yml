@@ -19,13 +19,13 @@ jobs:
       - name: build rpm
         run: |
           make rpm
-          rpmlint --file .rpmlint.ini build/RPMS/noarch/*.rpm
+          rpmlint --file .rpmlint.ini build/RPMS/x86_64/*.rpm
       - name: Upload rpms
         uses: actions/upload-artifact@v3
         with:
           name: rpms7
           path: |
-            build/RPMS/noarch/ui-metapackage-*.el7.noarch.rpm
+            build/RPMS/x86_64/ui-*.el7.x86_64.rpm
 
   centos8:
     name: Build CentOS 8 RPMs
@@ -43,13 +43,13 @@ jobs:
       - name: build rpm
         run: |
           make rpm
-          rpmlint --file .rpmlint.ini build/RPMS/noarch/*.rpm
+          rpmlint --file .rpmlint.ini build/RPMS/x86_64/*.rpm
       - name: Upload rpms
         uses: actions/upload-artifact@v3
         with:
           name: rpms8
           path: |
-            build/RPMS/noarch/ui-metapackage-*.el8.noarch.rpm
+            build/RPMS/x86_64/ui-*.el8.x86_64.rpm
 
   centos7-install:
     name: Install CentOS 7 rpms
@@ -62,7 +62,7 @@ jobs:
           name: rpms7
       - name: Install generated rpms
         run: |
-          yum localinstall -y ui-metapackage-*.rpm
+          yum localinstall -y ui-*.rpm
 
   # XXX dependencies taken from non default repositories
   centos8-install:
@@ -78,4 +78,4 @@ jobs:
         run: |
           sed -i 's/^mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-Linux-*
           sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.epel.cloud|g' /etc/yum.repos.d/CentOS-Linux-*
-          yum localinstall -y ui-metapackage-*.rpm
+          yum localinstall -y ui-*.rpm
