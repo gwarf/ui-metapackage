@@ -6,7 +6,7 @@ services.
 
 ## Building package
 
-### Building a RPM
+### Building the RPM
 
 The required build dependencies are:
 
