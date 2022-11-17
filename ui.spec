@@ -9,6 +9,8 @@ Release:	1%{?dist}
 Summary:	UI meta-packages
 Group:		Applications/Internet
 License:	ASL 2.0
+URL:	https://github.com/EGI-Federation/ui-metapackage
+Source:		%{name}-%{version}.tar.gz
 BuildRoot:	%{_tmppath}/%{name}-%{version}-build
 
 # the above replaced by ca-policy-egi-core
@@ -107,8 +109,6 @@ Requires:       transfer-cli
 Requires:	      util-c  
 %endif
 
-Source:		       ui-4.0.3.tar.gz
-
 %description
 Suite of clients and APIs that users and applications 
 can use to access grid services
@@ -120,15 +120,16 @@ can use to access grid services
 
 %install
 rm -rf $RPM_BUILD_ROOT
- mkdir -p $RPM_BUILD_ROOT
- find $RPM_BUILD_ROOT -name '*.la' -exec rm -rf {} \;
- find $RPM_BUILD_ROOT -name '*.pc' -exec sed -i -e "s|$RPM_BUILD_ROOT||g" {} \;
+mkdir -p $RPM_BUILD_ROOT
+find $RPM_BUILD_ROOT -name '*.la' -exec rm -rf {} \;
+find $RPM_BUILD_ROOT -name '*.pc' -exec sed -i -e "s|$RPM_BUILD_ROOT||g" {} \;
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(-,root,root,-)
+%doc /usr/share/doc/ui/README.md
 
 %changelog
 * Fri Sep 15 2017 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.3-1
