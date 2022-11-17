@@ -5,8 +5,9 @@ Suite of clients and APIs that users and applications can use to access
 services.
 
 The UI relies on packages available in the following repositories:
-* [UMD](https://repository.egi.eu/)
-* [EPEL](https://docs.fedoraproject.org/en-US/epel/)
+
+- [UMD](https://repository.egi.eu/)
+- [EPEL](https://docs.fedoraproject.org/en-US/epel/)
 
 ## Building packages
 
@@ -38,6 +39,7 @@ The RPM will be available into the `build/RPMS` directory.
   - Updating version and changelog in `ui-metapackage.spec`
   - Updating version and changelog in `CHANGELOG`
 - Once the PR has been merged, publish a new release using GitHub web interface
+  - Suffix the tag name to be created with `v`, like `v1.0.0`
   - Packages will be built using GitHub Actions and attached to the release page
 
 ## History
