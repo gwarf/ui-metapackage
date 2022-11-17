@@ -8,6 +8,11 @@ dist=$(shell rpm --eval '%dist' | sed 's/%dist/.el5/')
 default:
 	@echo "Nothing to do"
 
+install:
+	@echo installing ...
+	@mkdir -p $(prefix)/usr/share/doc/ui
+	@install -m 0644 README.md $(prefix)/usr/share/doc/ui/
+
 dist:
 	@mkdir -p  $(build)/$(NAME)-$(VERSION)/
 	rsync -HaS --exclude ".git" --exclude "$(build)" * $(build)/$(NAME)-$(VERSION)/

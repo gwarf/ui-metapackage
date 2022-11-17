@@ -114,18 +114,17 @@ Suite of clients and APIs that users and applications
 can use to access grid services
 
 %prep
+%setup -q
 
 %build
-# Nothing to do
+# Nothing to build
 
 %install
-rm -rf $RPM_BUILD_ROOT
-mkdir -p $RPM_BUILD_ROOT
-find $RPM_BUILD_ROOT -name '*.la' -exec rm -rf {} \;
-find $RPM_BUILD_ROOT -name '*.pc' -exec sed -i -e "s|$RPM_BUILD_ROOT||g" {} \;
+rm -rf %{buildroot}
+make install prefix=%{buildroot}
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root,-)
