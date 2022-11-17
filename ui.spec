@@ -6,7 +6,7 @@
 Name:		ui
 Version:	4.0.3
 Release:	1%{?dist}
-Summary:	UI meta-packages
+Summary:	User Interface meta-package
 Group:		Applications/Internet
 License:	ASL 2.0
 URL:	https://github.com/EGI-Federation/ui-metapackage
