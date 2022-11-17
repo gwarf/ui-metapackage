@@ -9,7 +9,7 @@ Release:	1%{?dist}
 Summary:	UI meta-packages
 Group:		Applications/Internet
 License:	ASL 2.0
-BuildRoot:	%(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
+BuildRoot:	%{_tmppath}/%{name}-%{version}-build
 
 # the above replaced by ca-policy-egi-core
 Requires:       ca-policy-egi-core
@@ -166,4 +166,3 @@ rm -rf $RPM_BUILD_ROOT
 - Added missing dependencis to the EMI 2 version (includes 32b)
 * Fri Apr 01 2011 Cristina Aiftimiei <cristina.aiftimiei@pd.infn.it> - 1.0.0-0
 - First version for EMI
-
