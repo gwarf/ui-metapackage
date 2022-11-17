@@ -1,12 +1,16 @@
-# UI metapackage
+# User Interface (UI) metapackage
 
 Suite of clients and APIs that users and applications can use to access
 [High Throughput Compute](https://docs.egi.eu/users/compute/high-throughput-compute/)
 services.
 
+The UI relies on packages available in the following repositories:
+* [UMD](https://repository.egi.eu/)
+* [EPEL](https://docs.fedoraproject.org/en-US/epel/)
+
 ## Building packages
 
-### Building a RPM
+### Building the RPM
 
 The required build dependencies are:
 
