@@ -24,39 +24,14 @@ jobs:
       - name: build rpm
         run: |
           make rpm
-          rpmlint --file .rpmlint.ini build/RPMS/noarch/*.rpm
+          rpmlint --file .rpmlint.ini build/RPMS/x86_64/*.rpm
       - name: Upload rpms
         uses: actions/upload-artifact@v3
         with:
           name: rpms7
           path: |
-            build/RPMS/noarch/ui-metapackage-*.el7.noarch.rpm
-            build/SRPMS/ui-metapackage-*.el7.src.rpm
-
-  centos8:
-    name: Build CentOS 8 RPMs
-    runs-on: ubuntu-latest
-    container: centos:8
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-      - name: Install build requisites
-        run: |
-          sed -i 's/^mirrorlist/#mirrorlist/g' /etc/yum.repos.d/CentOS-Linux-*
-          sed -i 's|#baseurl=http://mirror.centos.org|baseurl=http://vault.epel.cloud|g' /etc/yum.repos.d/CentOS-Linux-*
-          yum install -y rpm-build rpmlint make rsync
-      - name: build rpm
-        run: |
-          make rpm
-          rpmlint --file .rpmlint.ini build/RPMS/noarch/*.rpm
-      - name: Upload rpms
-        uses: actions/upload-artifact@v3
-        with:
-          name: rpms8
-          path: |
-            build/RPMS/noarch/ui-metapackage-*.el8.noarch.rpm
-            build/SRPMS/ui-metapackage-*.el8.src.rpm
+            build/RPMS/x86_64/ui-*.el7.x86_64.rpm
+            build/SRPMS/ui-*.el7.src.rpm
 
   release7:
     name: Upload CentOS 7 release artefacts
@@ -69,8 +44,8 @@ jobs:
       - name: Find package name
         id: package_name_centos7
         run: |
-          rpm_path=$(find . -name 'ui-metapackage-*.el7.noarch.rpm')
-          src_path=$(find . -name 'ui-metapackage-*.el7.src.rpm')
+          rpm_path=$(find . -name 'ui-el7.x86_64.rpm')
+          src_path=$(find . -name 'ui-el7.src.rpm')
           echo ::set-output name=rpm_path::$rpm_path
           echo ::set-output name=src_path::$src_path
       - name: Upload glite-info-provider-ldap CentOS 7 RPMs
@@ -82,28 +57,3 @@ jobs:
           files: |
             ${{ steps.package_name_centos7.outputs.rpm_path }}
             ${{ steps.package_name_centos7.outputs.src_path }}
-
-  release8:
-    name: Upload CentOS 8 release artefacts
-    needs: centos8
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/download-artifact@v3
-        with:
-          name: rpms8
-      - name: Find package name
-        id: package_name_centos8
-        run: |
-          rpm_path=$(find . -name 'ui-metapackage-*.el8.noarch.rpm')
-          src_path=$(find . -name 'ui-metapackage-*.el8.src.rpm')
-          echo ::set-output name=rpm_path::$rpm_path
-          echo ::set-output name=src_path::$src_path
-      - name: Upload glite-info-provider-ldap CentOS 8 RPMs
-        uses: softprops/action-gh-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          fail_on_unmatched_files: true
-          files: |
-            ${{ steps.package_name_centos8.outputs.rpm_path }}
-            ${{ steps.package_name_centos8.outputs.src_path }}
