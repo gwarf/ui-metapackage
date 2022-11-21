@@ -8,5 +8,5 @@ and this project adheres to
 
 ## [Unreleased]
 
-## [X.X.XX]
-- Change description (#PR_NUMBER) (AUTHOR)
+## [5.0.0]
+- Drop support for RHEL6, CREAM, LFC, DPM, YAIM (#2) (Baptiste Grenier)

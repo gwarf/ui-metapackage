@@ -8,6 +8,12 @@
     },
     {
       "pattern": "^https://docs.github.com"
+    },
+    {
+      "pattern": "^https://operations-portal.egi.eu/vo/"
+    },
+    {
+      "pattern": "^https://voms2.hellasgrid.gr:8443/voms*"
     }
   ]
 }
