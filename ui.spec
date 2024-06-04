@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name: ui
-Version: 5.0.0
+Version: 6.0.0
 Release: 1%{?dist}
 Summary: User Interface meta-package
 Group: Applications/Internet
@@ -13,9 +13,19 @@ BuildRoot: %{_tmppath}/%{name}-%{version}-build
 # the above replaced by ca-policy-egi-core
 Requires: ca-policy-egi-core
 Requires: aria2
-Requires: condor
 Requires: davix-libs
+Requires: fetch-crl
+Requires: condor
+%if 0%{?rhel} == 7
+Requires: gfalFS
 Requires: dcache-srmclient
+Requires: lcg-ManageVOTag
+Requires: lcg-info
+Requires: lcg-infosites
+Requires: lcg-tags
+Requires: ginfo
+Requires: fts-client
+%endif
 Requires: dcap
 Requires: dcap-devel
 Requires: dcap-libs
@@ -23,23 +33,19 @@ Requires: dcap-tunnel-gsi
 Requires: dcap-tunnel-krb
 Requires: dcap-tunnel-ssl
 Requires: dcap-tunnel-telnet
-Requires: fetch-crl
-Requires: fts-client
 Requires: fuse
 Requires: fuse-libs
 Requires: gfal2-all
+%if 0%{?rhel} == 7
 Requires: gfal2-python
+%else
+Requires: gfal2-python3
+%endif
 Requires: gfal2-util
-Requires: gfalFS
 Requires: gfal2-doc
 Requires: gfal2-devel
-Requires: ginfo
 Requires: gsi-openssh-clients
 Requires: globus-gsi-cert-utils-progs
-Requires: lcg-ManageVOTag
-Requires: lcg-info
-Requires: lcg-infosites
-Requires: lcg-tags
 Requires: myproxy
 Requires: nordugrid-arc-client
 Requires: nordugrid-arc-plugins-xrootd
@@ -74,6 +80,8 @@ rm -rf %{buildroot}
 %doc /usr/share/doc/ui/README.md
 
 %changelog
+* Tue Jun 04 2024 <andrea.manzi@egi.eu> - 6.0.0-1
+- Support for El9 (#6) (Andrea Manzi)
 * Fri Nov 18 2022 Baptiste Grenier <baptiste.grenier@egi.eu> - 5.0.0-1
 - Drop support for RHEL6, CREAM, LFC, DPM, YAIM (#2) (Baptiste Grenier)
 * Fri Sep 15 2017 Andrea Manzi <andrea.manzi@cern.ch> - 4.0.3-1

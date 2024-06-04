@@ -8,5 +8,8 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [6.0.0]
+- Added support for el9 (#6) (Andrea Manzi)
+ 
 ## [5.0.0]
 - Drop support for RHEL6, CREAM, LFC, DPM, YAIM (#2) (Baptiste Grenier)
