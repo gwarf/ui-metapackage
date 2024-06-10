@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name: ui
-Version: 6.0.0
+Version: 6.0.1
 Release: 1%{?dist}
 Summary: User Interface meta-package
 Group: Applications/Internet
@@ -21,9 +21,7 @@ Requires: gfalFS
 Requires: dcache-srmclient
 Requires: lcg-ManageVOTag
 Requires: lcg-info
-Requires: lcg-infosites
 Requires: lcg-tags
-Requires: ginfo
 Requires: fts-client
 %endif
 Requires: dcap
@@ -44,14 +42,17 @@ Requires: gfal2-python3
 Requires: gfal2-util
 Requires: gfal2-doc
 Requires: gfal2-devel
+Requires: ginfo
 Requires: gsi-openssh-clients
 Requires: globus-gsi-cert-utils-progs
+Requires: lcg-infosites
 Requires: myproxy
 Requires: nordugrid-arc-client
 Requires: nordugrid-arc-plugins-xrootd
 Requires: nordugrid-arc-plugins-gfal
 Requires: nordugrid-arc-plugins-globus
 Requires: nordugrid-arc-plugins-needed
+Requires: nordugrid-arc-plugins-arcrest
 Requires: openldap-clients
 Requires: voms
 Requires: voms-clients-java
@@ -80,6 +81,8 @@ rm -rf %{buildroot}
 %doc /usr/share/doc/ui/README.md
 
 %changelog
+* Mon Jun 10 2024 <baptiste.grenier@egi.eu> - 6.0.1-1
+- Add ARC REST, ginfo and lcg-infosites on RHEL9 (#10) (Baptiste Grenier)
 * Tue Jun 04 2024 <andrea.manzi@egi.eu> - 6.0.0-1
 - Support for El9 (#6) (Andrea Manzi)
 * Fri Nov 18 2022 Baptiste Grenier <baptiste.grenier@egi.eu> - 5.0.0-1
