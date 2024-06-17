@@ -33,6 +33,28 @@ jobs:
             build/RPMS/x86_64/ui-*.el7.x86_64.rpm
             build/SRPMS/ui-*.el7.src.rpm
 
+  almalinux8:
+    name: Build AlmaLinux 8 RPMs
+    runs-on: ubuntu-latest
+    container: almalinux:8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install build requisites
+        run: |
+          dnf install -y rpm-build make rsync systemd-rpm-macros
+      - name: build rpm
+        run: |
+          make clean rpm
+      - name: Upload RPMs
+        uses: actions/upload-artifact@v4
+        with:
+          name: rpms8
+          path: |
+            build/RPMS/x86_64/ui-*.el8.x86_64.rpm
+            build/SRPMS/ui-*.el8.src.rpm
+
   almalinux9:
     name: Build AlmaLinux 9 RPMs
     runs-on: ubuntu-latest
@@ -81,6 +103,33 @@ jobs:
           files: |
             ${{ steps.package_name_centos7.outputs.rpm_path }}
             ${{ steps.package_name_centos7.outputs.src_path }}
+
+  release8:
+    name: Upload AlmaLinux 8 release artefacts
+    permissions:
+      contents: write # to upload release asset (softprops/action-gh-release)
+    needs: almalinux8
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: rpms8
+      - name: Find package name
+        id: package_name_almalinux8
+        run: |
+          rpm_path=$(find . -name 'ui-*.el8.x86_64.rpm')
+          src_path=$(find . -name 'ui-*.el8.src.rpm')
+          echo "rpm_path=${rpm_path}" >> "$GITHUB_OUTPUT"
+          echo "src_path=${src_path}" >> "$GITHUB_OUTPUT"
+      - name: Attach AlmaLinux 8 RPMs to the release
+        uses: softprops/action-gh-release@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          fail_on_unmatched_files: true
+          files: |
+            ${{ steps.package_name_almalinux8.outputs.rpm_path }}
+            ${{ steps.package_name_almalinux8.outputs.src_path }}
 
   release9:
     name: Upload AlmaLinux 9 release artefacts

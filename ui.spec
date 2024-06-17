@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name: ui
-Version: 6.0.1
+Version: 6.1.0
 Release: 1%{?dist}
 Summary: User Interface meta-package
 Group: Applications/Internet
@@ -81,6 +81,8 @@ rm -rf %{buildroot}
 %doc /usr/share/doc/ui/README.md
 
 %changelog
+* Tue Jun 11 2024 <baptiste.grenier@egi.eu> - 6.1.0-1
+- Build and package for RHEL8 (#11) (Baptiste Grenier)
 * Mon Jun 10 2024 <baptiste.grenier@egi.eu> - 6.0.1-1
 - Add ARC REST, ginfo and lcg-infosites on RHEL9 (#10) (Baptiste Grenier)
 * Tue Jun 04 2024 <andrea.manzi@egi.eu> - 6.0.0-1
