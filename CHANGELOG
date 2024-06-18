@@ -8,6 +8,9 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [6.2.0]
+- Include CVMFS as a dependency (#12) (Baptiste Grenier)
+
 ## [6.1.0]
 - Build and package for RHEL8 (#11) (Baptiste Grenier)
 

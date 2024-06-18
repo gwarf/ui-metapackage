@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name: ui
-Version: 6.1.0
+Version: 6.2.0
 Release: 1%{?dist}
 Summary: User Interface meta-package
 Group: Applications/Internet
@@ -10,9 +10,9 @@ URL: https://github.com/EGI-Federation/ui-metapackage
 Source: %{name}-%{version}.tar.gz
 BuildRoot: %{_tmppath}/%{name}-%{version}-build
 
-# the above replaced by ca-policy-egi-core
 Requires: ca-policy-egi-core
 Requires: aria2
+Requires: cvmfs
 Requires: davix-libs
 Requires: fetch-crl
 Requires: condor
@@ -81,6 +81,8 @@ rm -rf %{buildroot}
 %doc /usr/share/doc/ui/README.md
 
 %changelog
+* Tue Jun 18 2024 <baptiste.grenier@egi.eu> - 6.2.0-1
+- Include CVMFS as a dependency (#12) (Baptiste Grenier)
 * Tue Jun 11 2024 <baptiste.grenier@egi.eu> - 6.1.0-1
 - Build and package for RHEL8 (#11) (Baptiste Grenier)
 * Mon Jun 10 2024 <baptiste.grenier@egi.eu> - 6.0.1-1
