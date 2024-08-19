@@ -41,10 +41,14 @@ In order to help with deploying the UI, different solutions are possible:
 
   ```shell
   # Install EPEL repository
-  $ yum install -y https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+  $ dnf install -y epel-release
   # Install UMD repositories, look for available UMD release on https://repository.egi.eu/
-  $ yum install -y http://repository.egi.eu/sw/production/umd/4/centos7/x86_64/updates/umd-release-4.1.3-1.el7.centos.noarch.rpm
-  $ yum localinstall -y ui-*.rpm
+  # FIXME: As of 2024-08, fall back on WLCG + upstreams repositories in place of UMD repo
+  $ dnf install -y https://linuxsoft.cern.ch/wlcg/el9/x86_64/wlcg-repo-1.0.0-1.el9.noarch.rpm
+  $ dnf install -y https://research.cs.wisc.edu/htcondor/repo/23.x/htcondor-release-current.el9.noarch.rpm
+  $ dnf install -y https://ecsft.cern.ch/dist/cvmfs/cvmfs-release/cvmfs-release-latest.noarch.rpm
+  $ dnf config-manager --set-enabled crb
+  $ dnf localinstall -y ui-*.rpm
   ```
 
 - Some
@@ -163,8 +167,8 @@ $ git clone https://github.com/EGI-Federation/ui-metapackage.git
 $ cd ui-metapackage
 $ git checkout X.X.X
 # Building in a container
-$ docker run --rm -v $(pwd):/source -it quay.io/centos/centos:7
-[root@bc96d4c5a232 /]# yum install -y rpm-build make rsync rpmlint
+$ docker run --rm -v $(pwd):/source -it almalinux:9
+[root@bc96d4c5a232 /]# dnf install -y rpm-build make rsync rpmlint systemd-rpm-macros
 [root@bc96d4c5a232 /]# cd /source && make rpm
 [root@bc96d4c5a232 /]# rpmlint --file .rpmlint.ini build/RPMS/x86_64/*.rpm
 ```
