@@ -36,10 +36,11 @@ Requires: fuse-libs
 Requires: gfal2-all
 %if 0%{?rhel} == 7
 Requires: gfal2-python
-%else
-Requires: gfal2-python3
-%endif
 Requires: gfal2-util
+%else
+Requires: python3-gfal2
+Requires: python3-gfal2-util
+%endif
 Requires: gfal2-doc
 Requires: gfal2-devel
 Requires: ginfo
