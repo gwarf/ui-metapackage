@@ -8,6 +8,10 @@ and this project adheres to
 
 ## [Unreleased]
 
+## [7.0.0]
+- Update GFAL package name (#13) (Andrey Kiryanov)
+- Stop building and releasing for RHEL7 (#14) (Baptiste Grenier)
+
 ## [6.2.0]
 - Include CVMFS as a dependency (#12) (Baptiste Grenier)
 

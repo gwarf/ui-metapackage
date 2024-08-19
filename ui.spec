@@ -1,7 +1,7 @@
 %global debug_package %{nil}
 
 Name: ui
-Version: 6.2.0
+Version: 7.0.0
 Release: 1%{?dist}
 Summary: User Interface meta-package
 Group: Applications/Internet
@@ -82,6 +82,9 @@ rm -rf %{buildroot}
 %doc /usr/share/doc/ui/README.md
 
 %changelog
+* Mon Aug 19 2024 <baptiste.grenier@egi.eu> - 7.0.0-1
+- Update GFAL package name (#13) (Andrey Kiryanov)
+- Stop building and releasing for RHEL7 (#14) (Baptiste Grenier)
 * Tue Jun 18 2024 <baptiste.grenier@egi.eu> - 6.2.0-1
 - Include CVMFS as a dependency (#12) (Baptiste Grenier)
 * Tue Jun 11 2024 <baptiste.grenier@egi.eu> - 6.1.0-1
